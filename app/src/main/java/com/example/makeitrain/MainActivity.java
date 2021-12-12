@@ -7,6 +7,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -30,5 +34,14 @@ public class MainActivity extends AppCompatActivity {
         moneyCounter+=1000;
         moneyValue.setText(String.valueOf(numberFormat.format(moneyCounter))+" /-");
         Log.d("ShowMoney", "onClick : Make It Rain !"+moneyCounter+" /-");
+    }
+    public void showInfo(View view){
+        //Toast.makeText(MainActivity.this,R.string.app_info,Toast.LENGTH_SHORT).show();
+        Snackbar.make(view,R.string.app_info, BaseTransientBottomBar.LENGTH_SHORT)
+                .setAction(
+                        "More",view1 -> {
+                            Log.d("SnackBar", "showInfo: Snack Bar More");
+                        }
+                ).show();
     }
 }
