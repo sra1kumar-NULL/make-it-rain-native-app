@@ -2,6 +2,7 @@ package com.example.makeitrain;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,7 +33,24 @@ public class MainActivity extends AppCompatActivity {
     public void showMoney(View view){
         NumberFormat numberFormat=NumberFormat.getNumberInstance(new Locale("en","IN"));
         moneyCounter+=1000;
+        switch (moneyCounter){
+            case 10000:
+                moneyValue.setTextColor(Color.YELLOW);
+                break;
+            case 20000:
+                moneyValue.setTextColor(Color.BLACK);
+                break;
+            case 30000:
+                moneyValue.setTextColor(Color.MAGENTA);
+                break;
+            case 40000:
+                moneyValue.setTextColor(Color.LTGRAY);
+                break;
+            default:
+                moneyValue.setTextColor(Color.WHITE);
+        }
         moneyValue.setText(String.valueOf(numberFormat.format(moneyCounter))+" /-");
+
         Log.d("ShowMoney", "onClick : Make It Rain !"+moneyCounter+" /-");
     }
     public void showInfo(View view){
